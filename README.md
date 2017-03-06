@@ -46,3 +46,44 @@ $ brew install node
 ```
 
 This installs node and npm. You can also go the nvm route, which is the node version manager if you plan to work on node more. In this case you can have a global node installed and then install nvm to manage more versions but a few things change like where your npm global modules are installed and where your node versions are installed. But see nvm documentation for information.
+
+#### Using npm as a build tool to replace Gulp/Grunt
+
+This is a debatable subject but it is an alternative to installing gulp/grunt as global packages to use in the CLI (command line interface). The package.json in Boilerplate contains [npm scripts](https://docs.npmjs.com/misc/scripts) that runs commands by looking at the currently installed dependancies. Here is an example with modernizr as a development dependancy.
+
+Install modernizr as a devDependacy
+```bash
+$ npm install modernizr --save-dev
+```
+```javascript
+  "devDependencies": {
+    "modernizr": "^3.3.1"
+  },
+```
+Make sure the dependacy and the command desired is added to script object.
+```javascript
+"scripts": {
+    "modernizr": "modernizr -c modernizr-config.json -u"
+  },
+```
+There are two ways to run this dependancy through the command line with npm. One is by including the path and second is to use the scripts:
+```bash
+$ ./node_modules/.bin/modernizr -c modernizr-config.json -u
+#returns: Modernizr build saved to /Users/rootuser/boilerplate/modernizr.js
+#OR
+$ npm run modernizr
+#retunrs same as above but is less crowded
+```
+
+#### BASH (UNIX shell)
+
+Bash is the command line interface (CLI) for mac but you may be using another depending on your operating system. The reason this is added here is because Boilerplate serves the developer a starting point for setting his dev workflow if there not one currently. Here a few useful tools to use on your terminal.
+
+Assuming you have [Homebrew](http://docs.brew.sh/) installed:
+
+tree - program that shows a directory list as a tree format
+```bash
+$ brew install tree
+#then run a command to show only directories but not one
+$ tree -I 'node_modules'
+```
