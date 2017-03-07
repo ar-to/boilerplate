@@ -1,6 +1,139 @@
 # Boilerplate
 
-Boilerplate provides JSON files to help install all dependancies quickly with npm and bower. 
+##### NodeJS/NPM, Bower, SASS, RequireJS, PugJS, Gulp, Modernizr, Normalize.css
+
+Boilerplate provides the files necessary to start a front-end web development project. JSON files to help install all dependancies quickly with npm and bower but also a basic directory to use that works with the gulpfile.js, making it easy to get up and running writing markup templates with PugJS, RequireJS and Sass. Boilerplate also comes with modernizr and normalize.css.
+```bash
+.
+├── dist
+│   ├── css
+│   ├── js
+│   ├── minify
+│   ├── sourcemaps
+│   └── templates
+│       ├── fixed_nav
+│       ├── grid
+│       ├── nfixed_nav
+│       └── syntax
+├── src
+│   ├── css
+│   ├── js
+│   │   └── lib
+│   │       └── modules
+│   ├── pug
+│   │   ├── base
+│   │   ├── components
+│   │   └── template_base
+│   └── sass
+│       ├── base
+│       ├── components
+│       ├── layout
+│       ├── utils
+│       └── vendors
+└── tools
+```
+The gulpfile
+
+## Global NPM packages
+
+Below are packages installed globally with npm to use the command line interface.
+
+├── bower@1.8.0
+├── generator-h5bp@1.4.0
+├── grunt-cli@1.2.0
+├── gulp-cli@1.2.2
+├── less@2.7.2
+├── modernizr@3.3.1
+├── npm@4.4.0
+├── npm-check@5.4.0
+├── pug-cli@1.0.0-alpha6
+├── requirejs@2.3.3
+└── stylus@0.54.5
+└── yo@1.8.5
+
+## Yeoman
+
+Boilerplate uses Yeoman to download the [html5 boilerplate](https://github.com/h5bp/generator-h5bp#readme). If you are not to familiar with using gulp, globs, and want to make sure the directory works with the files provided, try to use the following directory list as a guide.
+.
+├── README.md
+├── bower.json
+├── dist
+│   ├── css
+│   │   ├── index.css
+│   │   ├── main.css
+│   │   └── prism.css
+│   ├── js
+│   │   ├── bundle.js
+│   │   ├── modernizr.js
+│   │   ├── prism.js
+│   │   └── rjs_bundle.js
+│   ├── minify
+│   ├── sourcemaps
+│   │   ├── bundle.js.map
+│   │   └── main.css.map
+│   └── templates
+│       ├── fixed_nav
+│       │   └── fixed_nav.html
+│       ├── grid
+│       │   └── grid.html
+│       ├── index.html
+│       ├── nfixed_nav
+│       │   └── nfixed_nav.html
+│       └── syntax
+│           └── syntax.html
+├── gulpfile.js
+├── package.json
+├── src
+│   ├── css
+│   │   └── prism.css
+│   ├── js
+│   │   ├── lib
+│   │   │   └── modules
+│   │   │       ├── nav_color.js
+│   │   │       ├── navmod.js
+│   │   │       └── smoothscroll.js
+│   │   └── require.config.js
+│   ├── pug
+│   │   ├── base
+│   │   │   ├── _basic.pug
+│   │   │   ├── _footer.pug
+│   │   │   └── _head.pug
+│   │   ├── components
+│   │   │   ├── _fixed_nav.pug
+│   │   │   ├── _grid.pug
+│   │   │   ├── _nfixed_nav.pug
+│   │   │   └── _syntax-highlighting.pug
+│   │   ├── fixed_nav.pug
+│   │   ├── grid.pug
+│   │   ├── index.pug
+│   │   ├── nfixed_nav.pug
+│   │   ├── syntax.pug
+│   │   └── template_base
+│   │       ├── _temp_footer.pug
+│   │       └── _temp_head.pug
+│   └── sass
+│       ├── base
+│       │   ├── _colors.sass
+│       │   ├── _reset.sass
+│       │   ├── _special.sass
+│       │   ├── _syntax_highlighting.sass
+│       │   └── _typography.sass
+│       ├── components
+│       │   ├── _buttons.scss
+│       │   └── _navigation.sass
+│       ├── layout
+│       │   ├── _grid.sass
+│       │   └── _header.scss
+│       ├── main.sass
+│       ├── utils
+│       │   └── _variables.sass
+│       └── vendors
+│           └── _vendor.scss
+└── tools
+    ├── almond.js
+    ├── app.build.js
+    ├── modernizr-config.json
+    └── rjs.build.js
 
 ## Bower
 
