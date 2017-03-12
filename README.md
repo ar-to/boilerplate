@@ -2,7 +2,29 @@
 
 ##### NodeJS/NPM, Bower, SASS, RequireJS, PugJS, Gulp, Modernizr, Normalize.css
 
-Boilerplate provides the files necessary to start a front-end web development project. JSON files to help install all dependancies quickly with npm and bower but also a basic directory to use that works with the gulpfile.js, making it easy to get up and running writing markup templates with PugJS, RequireJS and Sass. Boilerplate also comes with modernizr and normalize.css.
+Boilerplate provides the files necessary to start a front-end web development project. JSON files to help install all dependancies quickly with npm and bower but also a basic directory to use that works with the gulpfile.js, making it easy to get up and running writing markup templates with PugJS, RequireJS and Sass. Boilerplate also comes with modernizr and normalize.css. Yeoman generators are also an option once yeoman in installed globally.
+
+## Global NPM packages
+
+Below are packages installed globally with npm to use with the command line interface. Refer to each tool's website for installation instructions.
+
+├── bower@1.8.0
+├── generator-h5bp@1.4.0
+├── grunt-cli@1.2.0
+├── gulp-cli@1.2.2
+├── less@2.7.2
+├── modernizr@3.3.1
+├── npm@4.4.0
+├── npm-check@5.4.0
+├── pug-cli@1.0.0-alpha6
+├── requirejs@2.3.3
+└── stylus@0.54.5
+└── yo@1.8.5
+
+## Directory Structure
+
+This is the directory structure that can be used with npm modules and gulpfile.js.
+
 ```bash
 .
 ├── dist
@@ -32,28 +54,10 @@ Boilerplate provides the files necessary to start a front-end web development pr
 │       └── vendors
 └── tools
 ```
-The gulpfile
 
-## Global NPM packages
+Use this guide for possible files used inside the guide from above. This example comes from Mangree Framework.
 
-Below are packages installed globally with npm to use the command line interface.
-
-├── bower@1.8.0
-├── generator-h5bp@1.4.0
-├── grunt-cli@1.2.0
-├── gulp-cli@1.2.2
-├── less@2.7.2
-├── modernizr@3.3.1
-├── npm@4.4.0
-├── npm-check@5.4.0
-├── pug-cli@1.0.0-alpha6
-├── requirejs@2.3.3
-└── stylus@0.54.5
-└── yo@1.8.5
-
-## Yeoman
-
-Boilerplate uses Yeoman to download the [html5 boilerplate](https://github.com/h5bp/generator-h5bp#readme). If you are not to familiar with using gulp, globs, and want to make sure the directory works with the files provided, try to use the following directory list as a guide.
+``` bash
 .
 ├── README.md
 ├── bower.json
@@ -134,10 +138,28 @@ Boilerplate uses Yeoman to download the [html5 boilerplate](https://github.com/h
     ├── app.build.js
     ├── modernizr-config.json
     └── rjs.build.js
+```
+
+## Gulp
+
+If you are not to familiar with using gulp, globs, and want to make sure the directory works with the files provided, try to use the directory structure list above as a guide. Gulp can be run from the shell as a global command or via [npm scripts](#node/npm).
+
+``` bash
+$ npm run gsass #watches only sass changes
+$ npm run gpug #watches only pug changes
+$ npm run gall #watches pug, sass, and requirejs changes
+```
+
+## Yeoman
+
+Boilerplate can use Yeoman to download the [html5 boilerplate](https://github.com/h5bp/generator-h5bp#readme) or any other as desired. Run the following command to install the yo generator.
+```bash
+$ yo h5bp
+```
 
 ## Bower
 
-This boilerplate uses Bower to install and manage dependancies such as RequireJS, etc.
+Boilerplate can also use Bower to install and manage front-end dependancies such as RequireJS, etc.
 Boilerplate comes with a bower.json that will install all of the dependancies for you. Follow the commands below on your terminal to do this. 
 
 ```shell
@@ -154,13 +176,13 @@ $ bower install <package>
 
 1. HTML5 Boilerplate
 
- - Use on its own to stablish a starting point in your web dev workflow. Use other components as needed.
+ - Use on its own to establish a starting point in your web dev workflow. Use other components as needed. By using bower to have a copy of the HTML5 boilerplate it can updated and then use only what is need in the project such as the directories and config files.
  - Visit these site for information on using this boilerplate
-  - [creativeblog.com](http://www.creativebloq.com/web-design/how-use-html-boilerplate-11513798)
+ - [creativeblog.com](http://www.creativebloq.com/web-design/how-use-html-boilerplate-11513798)
 
 2. Normalize.css
 
- - A way to start styles fresh without using brower defaults and to help them be cross-brower
+ - A way to start styles fresh without using browser defaults and to help them be cross-browser compatible.
 
 3. RequireJS
 
@@ -206,6 +228,17 @@ $ ./node_modules/.bin/modernizr -c modernizr-config.json -u
 #OR
 $ npm run modernizr
 #retunrs same as above but is less crowded
+```
+
+#### NPM Scripts
+
+Here are the available commands using npm scripts.
+
+``` bash
+$ npm run rjs #runs the requirejs optimizer r.js and creates a single file rjs_bundle.js #inside dist/js/
+$ npm run gsass #watches only sass changes
+$ npm run gpug #watches only pug changes
+$ npm run gall #watches pug, sass, and requirejs changes
 ```
 
 #### BASH (UNIX shell)

@@ -4,7 +4,12 @@
   "description": "mangree is a custom css framework build by ar-to and philosophyanddesign.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rjs": "r.js -o ./tools/rjs.build.js",
+    "gsass": "gulp watchsass",
+    "gpug": "gulp watchpug",
+    "gall": "gulp watch",
+    "modernizr": "./node_modules/.bin/modernizr -c ./tools/modernizr-config.json -u -d ./dist/js/"
   },
   "keywords": [
     "mangree",
@@ -22,7 +27,9 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
+    "modernizr": "^3.3.1",
     "pug": "^2.0.0-beta11",
-    "pump": "^1.0.2"
+    "pump": "^1.0.2",
+    "requirejs": "^2.3.3"
   }
 }
