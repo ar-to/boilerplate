@@ -1,5 +1,7 @@
 #ignore cache,sourcemaps, etc
-**/bower_components
+**/.DS_Store
 **/.sass-cache
 **/node_modules
-**/.DS_Store
+**/bower_components
+**/*.*.map
+/dist/**

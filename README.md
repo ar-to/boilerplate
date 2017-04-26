@@ -1,8 +1,20 @@
 # Boilerplate
 
-##### NodeJS/NPM, Bower, SASS, RequireJS, PugJS, Gulp, Modernizr, Normalize.css
+##### NodeJS/NPM, Bower, SASS, RequireJS/r.js, PugJS, Gulp, Modernizr, Normalize.css
 
 Boilerplate provides the files necessary to start a front-end web development project. JSON files to help install all dependancies quickly with npm and bower but also a basic directory to use that works with the gulpfile.js, making it easy to get up and running writing markup templates with PugJS, RequireJS and Sass. Boilerplate also comes with modernizr and normalize.css. Yeoman generators are also an option once yeoman in installed globally.
+
+## Getting Started
+
+Run the following command inside the CLI to begin using Boilerplate
+
+``` bash
+$ npm install
+$ bower install
+$ npm start
+``````
+
+The commmand `npm start` initiates the task `gulp serve` which runs all tasks that compile to the dist folder and also automatically runs browsersync in chrome, though other browsers can be chosen inside the gulpfile.js
 
 ## Global NPM packages
 
@@ -138,24 +150,25 @@ Use this guide for possible files used inside the guide from above. This example
     ├── app.build.js
     ├── modernizr-config.json
     └── rjs.build.js
-```
+``````
 
 ## Gulp
 
-If you are not to familiar with using gulp, globs, and want to make sure the directory works with the files provided, try to use the directory structure list above as a guide. Gulp can be run from the shell as a global command or via [npm scripts](#node/npm).
+If you are not to familiar with using gulp, globs, and node but want to make sure the directory works with the files provided, try to use the directory structure list above as a guide. Gulp can be run from the shell as a global command or via [npm scripts](#node/npm).
 
 ``` bash
 $ npm run gsass #watches only sass changes
 $ npm run gpug #watches only pug changes
 $ npm run gall #watches pug, sass, and requirejs changes
-```
+``````
 
 ## Yeoman
 
 Boilerplate can use Yeoman to download the [html5 boilerplate](https://github.com/h5bp/generator-h5bp#readme) or any other as desired. Run the following command to install the yo generator.
+
 ```bash
 $ yo h5bp
-```
+``````
 
 ## Bower
 
@@ -170,7 +183,7 @@ Or you can install dependancies individually
 
 ```shell
 $ bower install <package>
-```
+``````
 
 ### Bower Components/Dependancies
 
@@ -207,39 +220,59 @@ This installs node and npm. You can also go the nvm route, which is the node ver
 This is a debatable subject but it is an alternative to installing gulp/grunt as global packages to use in the CLI (command line interface). The package.json in Boilerplate contains [npm scripts](https://docs.npmjs.com/misc/scripts) that runs commands by looking at the currently installed dependancies. Here is an example with modernizr as a development dependancy.
 
 Install modernizr as a devDependacy
+
 ```bash
 $ npm install modernizr --save-dev
 ```
-```javascript
+
+``` javascript
   "devDependencies": {
     "modernizr": "^3.3.1"
   },
 ```
+
 Make sure the dependacy and the command desired is added to script object.
-```javascript
+
+``` javascript
 "scripts": {
     "modernizr": "modernizr -c modernizr-config.json -u"
   },
 ```
+
 There are two ways to run this dependancy through the command line with npm. One is by including the path and second is to use the scripts:
-```bash
+
+returns: Modernizr build saved to /Users/rootuser/boilerplate/modernizr.js`
+``` bash
 $ ./node_modules/.bin/modernizr -c modernizr-config.json -u
-#returns: Modernizr build saved to /Users/rootuser/boilerplate/modernizr.js
-#OR
+```
+
+OR retunrs same as above but is less crowded
+
+``` bash
 $ npm run modernizr
-#retunrs same as above but is less crowded
 ```
 
 #### NPM Scripts
 
 Here are the available commands using npm scripts.
 
+runs the requirejs optimizer r.js and creates a single file rjs_bundle.js inside dist/js/
+
 ``` bash
-$ npm run rjs #runs the requirejs optimizer r.js and creates a single file rjs_bundle.js #inside dist/js/
-$ npm run gsass #watches only sass changes
-$ npm run gpug #watches only pug changes
-$ npm run gall #watches pug, sass, and requirejs changes
+$ npm run rjs
 ```
+watches only sass changes
+``` bash
+$ npm run gsass
+```
+watches only pug changes
+``` bash
+$ npm run gpug
+```
+watches pug, sass, and requirejs changes
+``` bash
+$ npm run gall
+```````
 
 #### BASH (UNIX shell)
 
@@ -250,6 +283,36 @@ Assuming you have [Homebrew](http://docs.brew.sh/) installed:
 tree - program that shows a directory list as a tree format
 ```bash
 $ brew install tree
-#then run a command to show only directories but not one
-$ tree -I 'node_modules'
 ```
+
+``` bash
+then run a command to show only directories but not one
+$ tree -I 'node_modules'
+```````
+
+## RequireJS
+
+(RequireJS)[http://www.requirejs.org/] is an AMD javascript loader that enables the use of multiple scripts as files called modules and helps make writing logic easier. In Boilerplate, requirejs can be used to load modules as decribed in their documentation but also global files such as modernizr, prism, jquery, underscorejs, etc.
+
+#### Global files
+
+Include global files inside the following folder
+
+├── src
+│   ├── css
+│   ├── js
+│   │   └── lib
+│   │        └── require.config.js
+
+Then add the following code to the require.config.js file
+
+```
+requirejs.config({
+//other options ,
+shim: {//using shim to load "browser globals" see: http://www.requirejs.org/docs/api.html#config-shim
+      'prism': {
+        exports: 'Prism'
+      }
+    }
+});
+````
