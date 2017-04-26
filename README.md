@@ -1,3 +1,5 @@
+![Boilerplate Logo](https://github.com/ar-to/boilerplate/blob/master/src/images/Boilerplate.png)
+
 # Boilerplate
 
 ##### NodeJS/NPM, Bower, SASS, RequireJS/r.js, PugJS, Gulp, Modernizr, Normalize.css
