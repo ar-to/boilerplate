@@ -1,12 +1,13 @@
 {
-  "name": "boilerplate",
-  "version": "0.0.1",
-  "description": "boilerplate is a template to web development by ar-to and philosophyanddesign.com",
+  "name": "mangree-boilerplate",
+  "version": "0.1.3",
+  "description": "mangree is a custom css framework build by ar-to and philosophyanddesign.com",
   "main": "index.js",
   "scripts": {
     "start": "gulp build",
     "serve": "gulp serve",
     "http": "http-server",
+    "clean": "gulp clean-all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "rjs": "r.js -o ./tools/rjs.build.js",
     "gsass": "gulp watchsass",
@@ -15,8 +16,8 @@
     "modernizr": "./node_modules/.bin/modernizr -c ./tools/modernizr-config.json -u -d ./dist/js/"
   },
   "keywords": [
-    "boilerplate",
-    "template"
+    "mangree",
+    "css-framework"
   ],
   "author": "ar-to",
   "license": "ISC",

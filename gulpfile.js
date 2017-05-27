@@ -1,6 +1,5 @@
 var gulp = require('gulp');//main
 var filter = require('gulp-filter');//filters files with globs
-var uglify = require('gulp-uglify');//used only as needed for dist js vendor files
 var pump = require('pump');//used only on uglify
 var sass = require('gulp-sass');//using
 var autoprefixer = require('gulp-autoprefixer');//using
@@ -21,7 +20,6 @@ var cache = require('gulp-cache');//to help speed up image optimization; https:/
 var del = require('del');//delete files/directories w/globs; https://www.npmjs.com/package/del
 //build
 var runSequence = require('run-sequence');//run tasks in order; https://www.npmjs.com/package/run-sequence
-
 
 var paths = {
   sass: ['./src/sass/**/*.sass'],
@@ -64,7 +62,7 @@ gulp.task('pug', function(done) {
     //.pipe(gulp.dest(callback))//remove return from gulp.src() to avoid returning stream and confusing gulp
     //.on('end', done);
 });
-//requirejsOptimize works : minifies and concatenates modules w/almond into a single working bundle file
+
 gulp.task('requireopt', function () {
     /*return gulp.src('./src/modules/*.js')
         .pipe(requirejsOptimize())
@@ -78,18 +76,19 @@ gulp.task('requireopt', function () {
         //used for requirejs module loading; needed for shim see:http://www.requirejs.org/docs/optimization.html#mainConfigFile
         mainConfigFile: './src/js/require.config.js',//relative to gulpfile
         paths: {
-          nav: 'modules/one_module',//relative to baseUrl
-          smoothscll: 'modules/two_module',
-          nav_color: 'modules/nav_color'
+            modernizr_script: 'modules/modernizr_scripts',
+            two_module: 'modules/two_module',
+            one_module: 'modules/one_module'
         },
         include: ['../require.config'],//relative to baseUrl
-        name: "../../../tools/almond",//relative to baseURL//needs to be changed to bower
-        out: "bundle.js"//relative to gulpfile.js or gulp.dest()
+        name: "../../../bower_components/almond/almond",//relative to baseURL
+        out: "build.js"//relative to gulpfile.js or gulp.dest()
       };
     }))
     .pipe(sourcemaps.write('../sourcemaps'))//writes sourcemaps to directory:relative to gulp.dest()!!; comment to remove
     .pipe(gulp.dest('./dist/js'));//output directory
 });
+
 //$ gulp watch works
 gulp.task('watch', ['sass', 'pug', 'requireopt'], function() {
   gulp.watch(paths.sass, ['sass']);
